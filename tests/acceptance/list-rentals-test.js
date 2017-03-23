@@ -3,8 +3,6 @@ import moduleForAcceptance from 'super-rentals/tests/helpers/module-for-acceptan
 
 moduleForAcceptance('Acceptance | list rentals');
 
-test('visiting /', function(assert) {
-
   test('should show rentals as the home page', function (assert) {
     visit('/');
     andThen(function() {
@@ -29,6 +27,10 @@ test('visiting /', function(assert) {
   });
 
   test('should list available rentals.', function (assert) {
+    visit('/');
+    andThen(function() {
+      assert.equal(find('.listing').length, 3, 'should see 3 listings');
+    });
   });
 
   test('should filter the list of rentals by city.', function (assert) {
@@ -36,5 +38,3 @@ test('visiting /', function(assert) {
 
   test('should show details for a selected rental', function (assert) {
   });
-
-});
